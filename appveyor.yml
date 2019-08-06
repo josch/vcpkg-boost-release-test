@@ -4,7 +4,7 @@ image: Visual Studio 2017
 platform: x64
 environment:
   matrix:
-   - COMMIT: fb0c047
+   - COMMIT: 3d87ec6
      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
    - COMMIT: 208bb8e
      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
@@ -21,4 +21,4 @@ build_script:
      vcpkg version
      vcpkg --triplet x64-windows install boost
 on_failure:
-  - cmd: type C:\Tools\vcpkg\buildtrees\boost-fiber\build-x64-windows-rel-out.log
+  - cmd: type buildtrees\boost-fiber\build-x64-windows-rel-out.log
