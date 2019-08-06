@@ -10,4 +10,5 @@ build_script:
      echo.set(VCPKG_BUILD_TYPE release)>> triplets\x64-windows.cmake
      call bootstrap-vcpkg.bat
      where vcpkg
+     vcpkg version
      vcpkg --triplet x64-windows install boost
