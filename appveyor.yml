@@ -4,7 +4,7 @@ image: Visual Studio 2017
 platform: x64
 environment:
   matrix:
-   - COMMIT: 1b2f75b
+   - COMMIT: 5886a48d
      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
    - COMMIT: HEAD
      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
