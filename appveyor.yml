@@ -21,4 +21,4 @@ build_script:
      %APPVEYOR_BUILD_FOLDER%\vcpkg\vcpkg.exe --triplet x64-windows install boost
 on_failure:
   - cmd: type buildtrees\boost-fiber\build-x64-windows-rel-out.log
-  - cmd: dir installed\x64-windows
+  - cmd: dir installed\x64-windows\debug
