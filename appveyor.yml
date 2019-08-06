@@ -4,17 +4,17 @@ image: Visual Studio 2017
 platform: x64
 environment:
   matrix:
-   - BUILDNUM: 1
+   - COMMIT: fb0c047
      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-   - BUILDNUM: 2
+   - COMMIT: 208bb8e
      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
 build_script:
   - |-
      git clone https://github.com/microsoft/vcpkg.git
      cd vcpkg
-     if "%BUILDNUM%" == "1" ( git checkout 208bb8e ) ELSE ( git checkout 22e0b9f )
-     git reset --hard
+     git reset --hard %COMMIT%
      git status
+     git show HEAD --no-patch
      echo.set(VCPKG_BUILD_TYPE release)>> triplets\x64-windows.cmake
      call bootstrap-vcpkg.bat
      where vcpkg
