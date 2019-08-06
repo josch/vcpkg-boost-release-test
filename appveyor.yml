@@ -11,14 +11,13 @@ environment:
 build_script:
   - |-
      git clone https://github.com/microsoft/vcpkg.git
-     cd vcpkg
+     cd %APPVEYOR_BUILD_FOLDER%\vcpkg
      git reset --hard %COMMIT%
      git status
      git show HEAD --no-patch
-     echo.set(VCPKG_BUILD_TYPE release)>> triplets\x64-windows.cmake
+     echo.set(VCPKG_BUILD_TYPE release)>> %APPVEYOR_BUILD_FOLDER%\vcpkg\triplets\x64-windows.cmake
      call bootstrap-vcpkg.bat
-     where vcpkg
-     vcpkg version
-     vcpkg --triplet x64-windows install boost
+     %APPVEYOR_BUILD_FOLDER%\vcpkg\vcpkg.exe version
+     %APPVEYOR_BUILD_FOLDER%\vcpkg\vcpkg.exe --triplet x64-windows install boost
 on_failure:
   - cmd: type buildtrees\boost-fiber\build-x64-windows-rel-out.log
