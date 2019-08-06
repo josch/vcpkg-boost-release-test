@@ -1,0 +1,13 @@
+build:
+ verbosity: detailed
+image: Visual Studio 2017
+platform: x64
+build_script:
+  - |-
+     git clone https://github.com/microsoft/vcpkg.git
+     cd vcpkg
+     git status
+     echo.set(VCPKG_BUILD_TYPE release)>> triplets\x64-windows.cmake
+     call bootstrap-vcpkg.bat
+     where vcpkg
+     vcpkg --triplet x64-windows install boost
